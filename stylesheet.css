@@ -42,12 +42,14 @@ table {
 
 .subtitle{
 	font-weight: bold;
+	background-color: #cfcfe1;	
 }
 
 td {
 	font-family: Verdana;
 	font-size: 1em;
 	font-weight: normal;
+	background-color: #ffffff;
 	color: #3c4543;
 	padding:5px;
 	border: 1px solid grey;
