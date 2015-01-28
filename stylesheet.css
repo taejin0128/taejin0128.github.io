@@ -43,6 +43,7 @@ table {
 .subtitle{
 	font-weight: bold;
 	background-color: #cfcfe1;	
+	text-align: right;
 }
 
 td {
