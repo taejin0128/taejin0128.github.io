@@ -1,1 +1,192 @@
-<for test>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link type="text/css" rel="stylesheet" href="css/stylesheet3.css"/>
+		<script src="js/jquery.js"></script> 
+    	<script src="js/application3.js"></script> 
+    	<script type="text/javascript" src="d3/d3.v3.js"></script>
+			
+		<title> Relationship between math and science </title>
+	</head>
+	
+	<body>
+		
+		<div id="header">
+			<h2> Great Scientist ≠ Good at Math, True? </h2>
+		</div>
+
+		<div id="article">
+			<p> According to Dr.Wilson who is a professor at Harvard University, </p>
+			<p> "Fortunately, exceptional mathematical fluency is required in only a few disciplines, such as particle physics, astrophysics and information theory. Far more important throughout the rest of science is the ability to form concepts, during which the researcher conjures images and processes by intuition." </p>
+			<a href="https://http://www.wsj.com/articles/SB10001424127887323611604578398943650327184"> Source : The wall street journal "Great Scientist ≠ Good at Math" </a>
+		</div>
+
+		<div id="introduction1">
+			<p> Is it true? </p>
+			<p> Dr. Wilson said that this discoveries emerge from ideas, not number-crunching </p>
+		</div>
+
+		<div id="introduction2">
+			<p> How about the relationship of mathematics and science based on data? </p>
+			<p> The graph below shows the average scores of mathematics and science by country or other education system in 2011. </p>
+			<a href="http://nces.ed.gov/programs/digest/d12/tables/dt12_460.asp"> Source : National Center for Educational Statistics </a>
+		</div>
+
+		<div id = "graphMath" style="float: left;"> 
+			<p> The average scores of mathematics by countries </p>
+		</div>
+		<div id = "graphScience" style="float: right;"> 
+			<p> The average scores of science by countries </p>
+		</div>
+	
+
+  
+
+		<div id="footer"> </div>		
+
+		<script type="text/javascript">
+
+			var dataset;
+			var datatext;
+			var mathScore;
+
+			//The number of data = 49, 49*20 = 980, 980+60 = 1040
+			//The biggest number of data = 606, 606+50 = 656
+			var margin = {top: 20, right: 20, bottom: 30, left: 40},
+						 w = 700 - margin.left - margin.right,
+					 h = 700 - margin.top - margin.bottom;
+
+			var barPadding = 1;
+
+			d3.csv("data/data.csv", function(error, data) {
+				
+				dataset = data.map(function(d) { return +d["MathAverage"] });
+				dataset1 = data.map(function(d) { return +d["ScienceAverage"] });
+
+				datatext = data.map(function(d) { return d.Country });
+				
+				console.log(datatext);
+				console.log(dataset);
+
+				var x = d3.scale.ordinal()
+						.domain([datatext])
+						.rangeBands([0, w]);
+				
+				var y = d3.scale.linear()
+						.domain([0, 650])
+				    	.range([h, 0]);
+
+				var xAxis = d3.svg.axis()
+				    .scale(x)
+				    .orient("bottom");		    
+
+				var yAxis = d3.svg.axis()
+				    .scale(y)
+				    .orient("left")
+				    .ticks(10);
+			
+			//Create SVG element for graphMath
+			var svg = d3.select("#graphMath")
+						.append("svg")
+						.attr("width", w + margin.left + margin.right)
+						.attr("height", h + margin.top + margin.bottom)
+						.append("g")
+						.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+				svg.selectAll("rect")
+				    .data(dataset)
+				    .enter()
+				    .append("rect")
+				    .attr("x", function(d, i) {
+				   		console.log(dataset.length);
+				   		return i * (w / dataset.length);
+				    })
+				    .attr("y", function(d) {
+				   		return h - d;
+				    })
+				    .attr("height", function(d) {
+				   		return d;
+				    })
+				    .attr("width", w / dataset.length - barPadding)
+				    .attr("fill", function(d) {
+						return "rgb(0, 0, " + (d*10) + ")";
+				    });
+
+				svg.append("g")
+				    .attr("class", "x axis")
+				    .attr("transform", "translate(0," + h + ")")
+				    .call(xAxis);
+				    /*.append("text")
+				    .attr("transform", "rotate(-90)")
+				    .attr("y", 6)
+				    .attr("dy", ".71em")
+				    .style("text-anchor", "end")
+				    .text("Frequency");*/
+
+				svg.append("g")
+				    .attr("class", "y axis")
+				    //.attr("transform", "translate(0," + w + ")")
+				      //.attr("transform", "rotate(-90)")
+				    .call(yAxis)
+				    /*.selectAll("text")
+					.attr("y", 600)
+					.attr("x", -500)
+				    .attr("dx", ".35em")
+					//.attr("transform", "rotate(-90)")
+					.style("text-anchor", "start");*/
+			
+			//Create SVG element for graphScience		
+			var svg = d3.select("#graphScience")
+						.append("svg")
+						.attr("width", w + margin.left + margin.right)
+						.attr("height", h + margin.top + margin.bottom)
+						.append("g")
+						.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+				svg.selectAll("rect")
+				    .data(dataset1)
+				    .enter()
+				    .append("rect")
+				    .attr("x", function(d, i) {
+				   		console.log(dataset1.length);
+				   		return i * (w / dataset1.length);
+				    })
+				    .attr("y", function(d) {
+				   		return h - d;
+				    })
+				    .attr("height", function(d) {
+				   		return d;
+				    })
+				    .attr("width", w / dataset1.length - barPadding)
+				    .attr("fill", function(d) {
+						return "rgb(0, 0, " + (d*10) + ")";
+				    });
+
+				svg.append("g")
+				    .attr("class", "x axis")
+				    .attr("transform", "translate(0," + h + ")")
+				    .call(xAxis);
+				    /*.append("text")
+				    .attr("transform", "rotate(-90)")
+				    .attr("y", 6)
+				    .attr("dy", ".71em")
+				    .style("text-anchor", "end")
+				    .text("Frequency");*/
+
+				svg.append("g")
+				    .attr("class", "y axis")
+				    //.attr("transform", "translate(0," + w + ")")
+				      //.attr("transform", "rotate(-90)")
+				    .call(yAxis)
+				    /*.selectAll("text")
+					.attr("y", 600)
+					.attr("x", -500)
+				    .attr("dx", ".35em")
+					//.attr("transform", "rotate(-90)")
+					.style("text-anchor", "start");*/				      		  
+			   });
+			
+		</script>
+	</body>
+</html>
