@@ -58,7 +58,7 @@
 
 			var barPadding = 1;
 
-			d3.csv("data/data.csv", function(error, data) {
+			d3.csv("data/Data.csv", function(error, data) {
 				
 				dataset = data.map(function(d) { return +d["MathAverage"] });
 				dataset1 = data.map(function(d) { return +d["ScienceAverage"] });
