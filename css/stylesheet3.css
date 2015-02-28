@@ -1,0 +1,94 @@
+body {
+	background-color: #b7d1c4
+}
+
+h2 {
+	font-family: Verdana;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	color: #acd1b2;
+	font-size: 1.5em;
+}
+
+#header {
+	position: relative;
+	top: -10px;
+	background-color: #3c4543;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+#article {
+	font-family: Verdana;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	position: relative;
+}
+
+#article p {
+	font-weight: bold;
+	color: #DF0174;
+}
+
+#article a {
+	font-weight: bold;
+	font-size: 0.7em;
+}
+
+#introduction1 {
+	font-family: Verdana;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	position: relative;
+	color: #7401DF;
+}
+
+#introduction2 {
+	font-family: Verdana;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	position: relative;
+}
+
+#introduction2 p {
+	font-weight: bold;
+	text-align: center;
+	color: #DF7401;
+}
+
+#introduction2 a {
+	text-align: right;
+	font-size: 0.7em;
+}
+
+#graphMath {
+	font-family: Verdana;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	position: relative;
+}
+
+#graphScience {
+	font-family: Verdana;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	position: relative;
+}
+
+#footer{
+	clear: both;
+	position: relative;
+	bottom: -20px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	height: 75px;
+	background-color: #3c4543;
+	padding-top: 16px;
+}
