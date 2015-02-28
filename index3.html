@@ -51,7 +51,7 @@
 			//The biggest number of data = 606, 606+50 = 656
 			var margin = {top: 20, right: 20, bottom: 200, left: 40},
 				 w = 1040 - margin.left - margin.right,
-			         h = 350 - margin.top - margin.bottom;
+			         h = 656 - margin.top - margin.bottom;
 
 			var barPadding = 1;
 
@@ -66,10 +66,11 @@
 				console.log(dataset);
 
 				var x = d3.scale.ordinal()
-						.domain(datatext)
-						.rangeBands([0, w]);
+					.domain(datatext)
+					.rangeBands([0, w]);
 				
 				var y = d3.scale.linear()
+					.domain([0, 650])
 				    	.range([h, 0]);
 
 				var xAxis = d3.svg.axis()
@@ -78,16 +79,15 @@
 
 				var yAxis = d3.svg.axis()
 				    .scale(y)
-				    .orient("left")
-				    .ticks(10);
+				    .orient("left");
 			
 			//Create SVG element for graphMath
 			var svg = d3.select("#graphMath")
-						.append("svg")
-						.attr("width", w + margin.left + margin.right)
-						.attr("height", h + margin.top + margin.bottom)
-						.append("g")
-						.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+				.append("svg")
+				.attr("width", w + margin.left + margin.right)
+				.attr("height", h + margin.top + margin.bottom)
+				.append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 				svg.selectAll("rect")
 				    .data(dataset)
