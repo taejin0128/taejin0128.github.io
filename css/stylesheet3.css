@@ -82,6 +82,15 @@ h2 {
 	position: relative;
 }
 
+#Conclusion {
+	font-family: Verdana;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	position: relative;
+	color: #5F04B4;
+}
+
 #footer{
 	clear: both;
 	position: relative;
