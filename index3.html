@@ -47,11 +47,9 @@
 			var datatext;
 			var mathScore;
 
-			//The number of data = 49, 49*20 = 980, 980+60 = 1040
-			//The biggest number of data = 606, 606+220 = 826
-			var margin = {top: 20, right: 20, bottom: 200, left: 40},
+			var margin = {top: 20, right: 20, bottom: 250, left: 40},
 				 w = 1040 - margin.left - margin.right,
-			         h = 826 - margin.top - margin.bottom;
+			         h = 920 - margin.top - margin.bottom;
 
 			var barPadding = 1;
 
@@ -70,7 +68,7 @@
 					.rangeBands([0, w]);
 				
 				var y = d3.scale.linear()
-					.domain([0, 700])
+					.domain([0, 650])
 				    	.range([h, 0]);
 
 				var xAxis = d3.svg.axis()
