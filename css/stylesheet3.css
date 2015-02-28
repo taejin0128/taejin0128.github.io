@@ -68,6 +68,12 @@ h2 {
 
 #graphMath {
 	font-family: Verdana;
+	font-size: 0.5 em;
+	position: relative;
+}
+
+#graphMath p {
+	font-family: Verdana;
 	font-size: 1em;
 	font-weight: bold;
 	text-align: center;
@@ -75,6 +81,12 @@ h2 {
 }
 
 #graphScience {
+	font-family: Verdana;
+	font-size: 0.5 em;
+	position: relative;
+}
+
+#graphScience p {
 	font-family: Verdana;
 	font-size: 1em;
 	font-weight: bold;
