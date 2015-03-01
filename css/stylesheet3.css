@@ -96,17 +96,6 @@ h2 {
 	color: #5F04B4;
 }
 
-#footer{
-	clear: both;
-	position: relative;
-	bottom: -20px;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-	height: 75px;
-	background-color: #3c4543;
-	padding-top: 16px;
-}
-
 #button{
 	border-radius: 5px;
 	border: 2px solid #6495ED;
@@ -125,3 +114,16 @@ h2 {
 	font-size: 14px;
 	font-family: Verdana, sans-serif;
 }
+
+
+#footer{
+	clear: both;
+	position: relative;
+	bottom: -20px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	height: 75px;
+	background-color: #3c4543;
+	padding-top: 16px;
+}
+
