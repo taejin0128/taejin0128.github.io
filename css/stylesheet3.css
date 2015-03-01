@@ -28,6 +28,10 @@ h2 {
 	position: relative;
 }
 
+#author {
+	text-align: right;
+}
+
 #article p {
 	font-weight: bold;
 	color: #DF0174;
