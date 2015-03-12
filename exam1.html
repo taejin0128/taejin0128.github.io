@@ -15,6 +15,14 @@
 			<h2> The number of IE students in different years for five universities </h2>
 		</div>
 
+		<div id="button">
+			<a href="taejin0128.github.io/exam1-1.html"> Stacked Bar Chart </a>		
+		</div>
+
+		<div id="button">
+			<a href="taejin0128.github.io/exam1-2.html"> Interactive Stacked Chart </a>		
+		</div>
+
 		<div id = "graph"> 
 			<p> The number of senior IE students in the five universities </p>
 		</div>
@@ -35,7 +43,7 @@
 
 			var barPadding = 10;
 
-			d3.json("http://hivelab.org/static/exam1.json", function(error, data) {
+			d3.json("data/exam1.json", function(error, data) {
 				
 				tempdataset = data[3];
 
