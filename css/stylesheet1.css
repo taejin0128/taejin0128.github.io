@@ -43,6 +43,13 @@ h2 {
 	color: #acd1b2;
 }
 
+#currentpage {
+	display: inline;
+	color: #acd1b2;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
 #table{
 	margin: auto;
 	position: relative;
