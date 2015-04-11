@@ -1,0 +1,95 @@
+body {
+    overflow: hidden;
+    margin: auto;
+    font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica;
+    background-color: #b7d1c4
+}
+
+h2 {
+    font-family: Verdana;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #acd1b2;
+    font-size: 1.5em;
+}
+
+#header {
+    position: relative;
+    top: -10px;
+    background-color: #3c4543;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#section {
+    width: 50%;
+    margin: auto;
+}
+
+#body {
+    padding-top: 10px;    
+    width: 50%;
+    margin: auto;
+}
+
+svg {
+    overflow: hidden;
+}
+
+rect {
+    pointer-events: all;
+    cursor: pointer;
+    stroke: #EEEEEE;
+}
+
+.chart {
+    display: block;
+    margin: auto;
+}
+
+.parent .label {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.labelbody {
+    background: transparent;
+}
+
+.label {
+    margin: 2px;
+    white-space: pre;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    text-align: center;    
+    -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.child .label {
+    white-space: pre-wrap;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.cell {
+    font-size: 11px;
+    cursor: pointer
+}
+
+#footer{
+    clear: both;
+    position: relative;
+    bottom: -20px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 75px;
+    background-color: #3c4543;
+    padding-top: 16px;
+}
