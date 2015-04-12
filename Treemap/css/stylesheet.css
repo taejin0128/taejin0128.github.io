@@ -71,6 +71,7 @@ h2 {
 #section {
     position: relative;
     margin: auto;
+    padding-left: 25px; 
 }
 
 #body {
@@ -86,6 +87,7 @@ h2 {
 }
 
 #explanation {
+    padding-left: 25px; 
     float: right;
 }
 
