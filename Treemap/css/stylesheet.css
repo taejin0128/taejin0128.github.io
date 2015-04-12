@@ -72,19 +72,19 @@ h2 {
     margin: auto;
 }
 
-.body {
+#body {
     /*overflow: hidden;
     overflow-y: hidden;
     overflow-x: hidden;*/
-    display: inline;
     padding-top: 10px;    
-    width: 50%;
+    position: relative;
+   /* width: 50%;*/
     margin: auto;
+    float: left;
 }
 
-.explanation {
-    display: inline;
-    text-align: center;
+#explanation {
+    float: right;
 }
 
 svg {
