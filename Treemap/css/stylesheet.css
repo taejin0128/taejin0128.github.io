@@ -4,7 +4,7 @@ body {
     font-size: 12px;
     font-family: "Helvetica Neue", Helvetica;
     background-color: #b7d1c4;
-    overflow: scroll;
+    /*overflow: scroll;*/
     /*overflow-y: scroll;*/
     /*overflow-x: scroll;*/
 }
@@ -72,16 +72,17 @@ h2 {
     margin: auto;
 }
 
-#body {
+.body {
     /*overflow: hidden;
     overflow-y: hidden;
     overflow-x: hidden;*/
+    display: inline;
     padding-top: 10px;    
     width: 50%;
     margin: auto;
 }
 
-#explanation {
+.explanation {
     display: inline;
     text-align: center;
 }
