@@ -71,7 +71,7 @@ h2 {
 #section {
     position: relative;
     margin: auto;
-    padding-left: 25px; 
+    padding-left: 10px; 
 }
 
 #body {
@@ -79,7 +79,7 @@ h2 {
     overflow-y: hidden;
     overflow-x: hidden;*/
     padding-top: 10px;
-    padding-left: 25px;    
+    padding-left: 10px;    
     position: relative;
    /* width: 50%;*/
     margin: auto;
@@ -87,7 +87,6 @@ h2 {
 }
 
 #explanation {
-    padding-left: 25px; 
     float: right;
 }
 
