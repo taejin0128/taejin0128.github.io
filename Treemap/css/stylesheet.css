@@ -4,6 +4,9 @@ body {
     font-size: 12px;
     font-family: "Helvetica Neue", Helvetica;
     background-color: #b7d1c4
+    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 h2 {
