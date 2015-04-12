@@ -67,8 +67,9 @@ h2 {
     border-top-right-radius: 15px;
 }
 
+
 #section {
-    width: 50%;
+    position: relative;
     margin: auto;
 }
 
@@ -76,7 +77,8 @@ h2 {
     /*overflow: hidden;
     overflow-y: hidden;
     overflow-x: hidden;*/
-    padding-top: 10px;    
+    padding-top: 10px;
+    padding-left: 25px;    
     position: relative;
    /* width: 50%;*/
     margin: auto;
