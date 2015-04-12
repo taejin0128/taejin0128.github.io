@@ -10,14 +10,16 @@ h1 {
 	padding-bottom: 25px;
 	color: #acd1b2;
 	font-size: 1.5em;
+	margin-bottom: 2px;
 }
 
 #header {
-	position: relative;
-	top: -10px;
+	/*position: relative;*/
+	/*top: -10px;*/
 	background-color: #3c4543;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
+	margin-bottom: 0px;
 }
 
 #navbar {
