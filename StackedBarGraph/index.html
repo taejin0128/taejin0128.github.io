@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link type="text/css" rel="stylesheet" href="css/stylesheet.css"/>
+		<!--<script src="js/jquery.js"></script>--> 
+    	<script type="text/javascript" src="d3/d3.v3.js"></script>
+			
+		<title> The number of IE students in the five universities </title>
+	</head>
+	
+	<body>
+		
+		<div id="header">
+			<h1> The number of senior IE students in the five universities </h1>
+		</div>
+
+		<div id="button">
+			<a href="http://taejin0128.github.io/exam1-1.html"> Stacked Bar Chart </a>		
+		</div>
+
+		<div id="button">
+			<a href="http://taejin0128.github.io/exam1-2.html"> Interactive Stacked Chart </a>		
+		</div>
+
+		<div id = "graph"> 
+		</div>
+
+		<div id="footer">
+		</div>
+
+
+	<script type="text/javascript">
+	    
+	    var margin = {top: 20, right: 150, bottom: 30, left: 40},
+	        width = 800 - margin.left - margin.right;
+	        height = 500 - margin.top - margin.bottom;
+		var barPadding = 30;
+		var xUni = [];
+		
+	    var svg = d3.select("#graph")
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			
+		d3.json('data/exam1.json', function (data) {
+			
+			//Define new Dataset for original data
+			var dataset = [];
+			var i = 0;
+			for (item in data[3]) {
+				if (item != "Year") {
+					var element = {uni: "", num: ""};
+					element.uni = item;
+					element.num = data[3][item];
+					dataset[i] = element;
+					i = i + 1;
+				}
+			}
+
+			//Define X-axis label
+			xUni = Object.keys(data[0]).filter( function(d){ return (d!="Year"); });
+
+			//X-Scale
+			var Xscale = d3.scale.ordinal()
+						   .domain(xUni)
+						   .rangeRoundBands([0, width]); 
+			//Y-Scale
+			var Yscale = d3.scale.linear()
+						   .domain([0, d3.max(dataset, function(d) { return d.num; })])
+					       .range([height, 0]); 
+			//X-Axis		       	
+			var Xaxis = d3.svg.axis()
+						  .scale(Xscale)
+						  .orient("bottom");
+
+			//Y-axis
+			var Yaxis = d3.svg.axis()
+						  .scale(Yscale)
+						  .orient("left")
+						  .ticks(10);
+					
+			svg.append("g")
+			   .attr("class", "x axis")
+			   .attr("transform", "translate(0, " + height+")")
+			   .call(Xaxis);
+				
+			svg.append("g")
+			   .attr("class", "y axis")
+			   .call(Yaxis);
+			
+			//Draw bar graph
+			svg.selectAll("rect")
+		    	.data(dataset)
+		    	.enter().append("rect")
+			    .attr("x", function(d, i) { return i * (width / dataset.length) + barPadding/2})
+			    .attr("width", width/dataset.length - barPadding)
+				.attr("y", function(d) { return height - Yscale(100 - d.num)})
+				.attr("height", function(d) { return Yscale(100 - d.num)})
+				.attr("fill", function(d) { return "rgb(0, 0, 100)"; });
+			
+			//Add numbers to each bar      	
+			svg.selectAll("num")
+				.data(dataset)
+				.enter().append("text")
+				.attr("class", "num")
+			  	.attr("x", function(d, i) { return i * (width / dataset.length) + barPadding/2 + 35 })
+			    .attr("y", function(d) { return height-Yscale(100 - d.num)+20})
+				.attr("fill", "white")
+			    .text(function(d) {return d.num})
+					
+		    //Add Legend
+		    svg.append("rect")
+				.style("fill", function(d) { return "rgb(0, 0, 100)"; })
+				.attr("x", width + 50)
+				.attr("y", 100)
+				.attr("width", 40)
+				.attr("height" , 40)
+				.attr("rx",10)
+				.attr("ry",10) 
+		
+			svg.append("text")
+				.attr("x", width + 10)
+		    	.attr("y", 160)
+		    	.text("# of senior IE students") 
+		  		.attr("font-family", "Arial")
+	        	.attr("font-size", "12px")
+
+		    //Add Axis-Label
+		    svg.append("text")
+		     	.text("Student Number")
+		     	.attr("x", 10)
+		   		.attr("y", 0)
+		  		.attr("font-family", "Arial")
+	        	.attr("font-size", "13 px")
+	        	.attr("text-anchor", "left")
+		    
+		    svg.append("text")
+		     	.text("University")
+		     	.attr("x", width + 10)
+		     	.attr("y", height + 10)
+		        .attr("font-family", "Arial")
+		        .attr("font-size", "13 px")	       
+		        .attr("text-anchor", "left");
+		}
+	)
+</script>
+		
+	</body>
+</html>

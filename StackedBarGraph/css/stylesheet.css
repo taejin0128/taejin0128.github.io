@@ -1,8 +1,8 @@
 body {
-	background-color: #b7d1c4
+	background-color: #acd1b2;
 }
 
-h2 {
+h1 {
 	font-family: Verdana;
 	font-weight: bold;
 	text-align: center;
@@ -23,18 +23,8 @@ h2 {
 #graph {
 	font-family: Verdana;
 	font-size: 1em;
-	text-align: center;
+	padding-top: 25px;
 	position: relative;
-	color: black;
-}
-
-#Conclusion {
-	font-family: Verdana;
-	font-weight: bold;
-	font-size: 1em;
-	text-align: center;
-	position: relative;
-	color: #5F04B4;
 }
 
 #button{
@@ -67,3 +57,39 @@ h2 {
 	padding-top: 16px;
 }
 
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+	font-family: Verdana;
+    font-size: 12px;
+}
+
+.uni{ 
+	font-family: Verdana;
+	font-size: 12px;
+}
+
+svg {
+	margin-left: 20%;
+}
+
+.freshman{
+	fill: #FAAC58;
+}
+
+.sophomore{
+	fill: #D0FA58;
+}
+
+.junior{
+	fill: #58ACFA;
+}
+
+.senior{
+	fill: #AC58FA;
+}
