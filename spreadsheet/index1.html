@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style> 
+
+			body { font: 12px Arial;}
+
+			table {
+			  border-collapse: collapse;
+			  border-spacing: 0;
+			  margin: auto;
+			}
+
+			th {
+			  background-color: #D3D3D3; 
+			  text-align: right;
+			  color: black;
+			  padding: 3px 10px;
+			}
+
+			td {
+			  text-align: right;
+			  color: black;  
+			  padding: 3px 10px;  
+			}
+
+			table, td, th {
+			  border: 1px solid black; /
+			}
+
+			.hclicked {
+				/* dark yellow*/
+			    background-color: #CCCC00; 
+			}
+
+
+			.clicked {
+			    background-color: green;
+			}
+
+			.hovered {
+			    background-color: yellow;
+			}
+
+		</style>
+		<script src="http://d3js.org/d3.v3.min.js"></script>	
+		
+		<title> Exam 3.2 </title>
+	</head>
+	
+	<body>
+		
+		<div id="header">
+			<h2> Exam 3.2 </h2>
+		</div>
+
+		<ul id="navbar">
+			<li id="navlinkspace"> <a id="navlink" href="http://taejin0128.github.io/spreadsheet/index.html"> HW 3.1 </a> </li>
+            <li id="currentpage"> HW 3.2 </li>        
+            <li id="navlinkspace"> <a id="navlink" href="http://taejin0128.github.io/spreadsheet/index2.html"> HW 3.3 </a> </li>
+        </ul>
+		
+		<div id="table"> </div>
+
+	
+		<div id="footer"> </div>
+	
+	</body>
+
+	<script>
+
+
+		// Get the data
+		// I referred the webpage (http://bl.ocks.org/d3noob/473f0cf66196a008cf99) for table template
+		d3.json("exam2.json", function(error, data) {
+		    var score = d3.keys(data[0]).filter(function(key) {
+		        return key;
+		    });
+
+		    var columns = ["ItemNo", "A", "B", "C", "D", "E", "F", "G"]		    
+		    var table = d3.select("#table")
+		                  .append("table")
+		                  .attr("style", "margin-left: 250px"),
+		        
+		    thead = table.append("thead"),
+		    tbody = table.append("tbody");
+
+		    // append the header row
+		    thead.append("tr")
+		        .selectAll("th")
+		        .data(columns)
+		        .enter()
+		        .append("th")
+		        .attr("class","column")
+		         .text(function(column) { 
+		            return column; });
+
+		    // create a row for each object in the data
+		    var rows = tbody.selectAll("tr")
+		        .data(data)
+		        .enter()
+		        .append("tr")
+		        .on("click", function() {
+		            d3.select(".hovered").classed("hovered", false);
+		            d3.select(".clicked").classed("clicked", false);
+		            d3.select(this).classed("clicked", true);
+		        })
+		        .on("mouseover", function(d) {
+		            d3.select(".hovered").classed("hovered", false);
+		            d3.select(this).classed("hovered", true);
+		        });
+
+		    // create a cell in each row for each column
+		    var cells = rows.selectAll("td")
+		        .data(function(row) {
+		            return columns.map(function(column) {
+		                return {column: column, value: row[column]};
+		            });
+		        })
+		        .enter().append("td")
+		        .text(function(d) { return d.value; });
+
+		    d3.selectAll(".column").data(score).on("click", function(k) {
+
+		        if(k !== "ItemNo") {
+			        d3.select(".hclicked").classed("hclicked", false);
+			        d3.select(this).classed("hclicked", true);
+
+			        rows.sort(function(a, b) { return a[k]-b[k] }); 
+		        }
+		    });		 
+
+		});
+
+	</script>
+
+</html>
