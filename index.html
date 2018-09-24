@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="Introduction/css/stylesheet1.css"/>
+		<script type='text/javascript' src="JsonEx/jquery.js"> </script>
+        <link type="text/css" rel="stylesheet" href="Introduction/css/stylesheet1.css"/>
 		<title>Personal Web Page</title>
 	</head>
 	<body>
@@ -58,8 +59,30 @@
 		</div>
 
         <div id="option">
-            <INPUT TYPE="Radio" Name="Gender" Value="Male"> Male
-            <INPUT TYPE="Radio" Name="Gender" Value="Female"> Female
+            <p>
+            <Input TYPE="Radio" Name="Gender" Value="Male"> Male
+            <Input TYPE="Radio" Name="Gender" Value="Female"> Female
+            </p>
+            
+            <p>
+            <Input name="send" type="submit" id="send" value="submit">
+            </p>     
+
+            <script type='text/javascript'>
+                $(document).ready(function() { 
+                    var button = $('send');
+                    button.attr('disabled', 'disabled');
+
+                    $('input[name=Gender]').change(function(){
+                        if($(Gender).val() == "Male") {
+                            button.removeAttr('disabled');
+                        } else {
+                            button.attr('disabled', 'disabled');
+                        }
+                        //$('Radio').submit();
+                    });
+                });
+            </script>
         </div>
 		
 		<div id="bottom">
