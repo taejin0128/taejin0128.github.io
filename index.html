@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script type='text/javascript' src="JsonEx/jquery.js"> </script>
+		<script type='text/javascript' src="Json/jquery-3.3.1.js"> </script>
+        <script type='text/javascript' src="Json/filesaver.js"> </script>
         <link type="text/css" rel="stylesheet" href="Introduction/css/stylesheet1.css"/>
 		<title>Personal Web Page</title>
 	</head>
@@ -68,7 +69,9 @@
             <Input name="send" type="submit" id="send" value="submit">
             </p>     
 
-            <script type='text/javascript'>
+            <button id="save-btn">Save Text file</button>
+
+            <script>
                 $(document).ready(function() { 
                     var button = $('send');
                     button.attr('disabled', 'disabled');
@@ -82,9 +85,16 @@
                         //$('Radio').submit();
                     });
                 });
+            
+                $("#save-btn").click(function() {
+                    var blob = new Blob(["test text"], {type: "text/plain;charset=utf-8"});
+                    saveAs(blob, "testfile1.txt");
+                });
+
             </script>
         </div>
 		
+
 		<div id="bottom">
 			<p> Welcome to Taejin's webpage </p>
 		</div>
