@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sending Email</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel='stylesheet' href='https://code.getmdl.io/1.3.0/material.indigo-pink.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+  <div class="demo-ribbon"></div>
+  <main class="demo-main mdl-layout__content">
+    <div class="demo-container mdl-grid">
+      <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+      <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--10-col">
+        <h5>Live Email App</h5>
+        <form class="sendEmail" method="post" autocomplete="off">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="email" id="from" data-required="true">
+            <label class="mdl-textfield__label" for="sample3">From</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="email" id="to" data-required="true">
+            <label class="mdl-textfield__label" for="sample3">To</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="subject" data-required="true">
+            <label class="mdl-textfield__label" for="sample3">Subject</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <textarea class="mdl-textfield__input" type="text" rows="3" id="emailbody" data-required="true"></textarea>
+            <label class="mdl-textfield__label" for="sample5">Email body</label>
+          </div>
+          <div>
+            <button style="background-color: #3baddc;" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Send</button>
+            <div class="mdl-spinner mdl-js-spinner is-active"></div>
+
+            <span class="success-help">Your message has been sent!</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://code.getmdl.io/1.3.0/material.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
