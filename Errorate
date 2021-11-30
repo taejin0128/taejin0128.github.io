@@ -1,0 +1,20 @@
+import editdistance
+
+def compute_wer(ref, rec):
+    ref = ref.split()
+    rec = ref.split()
+    D = editdistance.eval(ref, rec)
+    wer = D/len(ref)
+    return wer
+
+def compute_cer(ref, rec):
+    ref = ''.join(ref.split())
+    rec = ''.join(ref.split())
+    D = editdistance.eval(ref, rec)
+    wer = D/len(ref)
+    return cer
+
+ref = "how is the weather today"
+rec = "how as the better to day"
+
+print("wer=", compute_wer(ref, rec),"cer=", compute_cer(ref,rec))
